@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Numerics;
+using System.Runtime.Intrinsics.X86;
 using Jypeli;
 using Jypeli.Assets;
 using Jypeli.Controls;
@@ -16,6 +17,11 @@ public class Pulmapeli : PhysicsGame
     private const int RUUDUN_KOKO = 40;
 
     private PlatformCharacter pelaaja1;
+    int LiikkuvaTasoY;
+    private int LiikkuvaTasoX;
+    private Boolean onkoTasoAlhaalla = false;
+
+    private List<PhysicsObject> napit = new List<PhysicsObject>(); 
 
     private Image pelaajanKuva = LoadImage("norsu.png");
     private Image tahtiKuva = LoadImage("tahti.png");
@@ -26,6 +32,14 @@ public class Pulmapeli : PhysicsGame
 
     private SoundEffect MaaliAani = LoadSoundEffect("maali.wav");
 
+    private Vector LiikkuuYlos = new Vector(0, 200);
+    private Vector LiikkuuAlas = new Vector(0, -200);
+    private Vector LiikkuuVasemmalle = new Vector(-200, 0);
+    private Vector LiikkuuOikealle = new Vector(200, 0);
+
+    private PhysicsObject LiikkuvaTaso;
+    private PhysicsObject nappi;
+
     public override void Begin()
     {
         Gravity = new Vector(0, -1000);
@@ -34,7 +48,7 @@ public class Pulmapeli : PhysicsGame
         LisaaNappaimet();
 
         Camera.Follow(pelaaja1);
-        Camera.ZoomFactor = 1.2;
+        Camera.ZoomFactor = 0.8;
         Camera.StayInLevel = true;
 
         MasterVolume = 0.5;
@@ -50,8 +64,8 @@ public class Pulmapeli : PhysicsGame
         kentta.SetTileMethod('=', LisaaLiikkuvaTaso);
         
         kentta.Execute(RUUDUN_KOKO, RUUDUN_KOKO);
-      //  Level.Background.Image = TaustaKuva;
-     //   Level.Background.ScaleToLevelFull();
+        Level.Background.Image = TaustaKuva;
+        Level.Background.ScaleToLevelFull();
         
     }
 
@@ -59,15 +73,16 @@ public class Pulmapeli : PhysicsGame
     {
         PhysicsObject taso = PhysicsObject.CreateStaticObject(leveys, korkeus);
         taso.Position = paikka;
-        taso.Image = LiikkuvanTasonKuva;
+        taso.Image = TasonKuva;
         Add(taso);
     }
 
     private void LisaaLiikkuvaTaso(Vector paikka, double leveys, double korkeus)
     {
-        PhysicsObject LiikkuvaTaso = PhysicsObject.CreateStaticObject(leveys*2, korkeus);
+        LiikkuvaTaso = PhysicsObject.CreateStaticObject(leveys*4, korkeus*2);
         LiikkuvaTaso.Position = paikka;
         LiikkuvaTaso.Image = LiikkuvanTasonKuva;
+        LiikkuvaTaso.Y = LiikkuvaTasoY;
         Add(LiikkuvaTaso);
     }
 
@@ -83,23 +98,25 @@ public class Pulmapeli : PhysicsGame
 
     private void LisaaNappi(Vector paikka, double leveys, double korkeus)
     {
-        GameObject nappi = new GameObject(leveys,korkeus);
+        PhysicsObject nappi = new PhysicsObject(leveys*3,korkeus*3);
         nappi.Image = NapinKuva;
         nappi.Position = paikka;
-       
+        nappi.IgnoresCollisionResponse = true;
+        nappi.IgnoresGravity = true;
+        nappi.Tag = "nappi";
         Add(nappi);
+        napit.Add(nappi);
 
     }
     
 
     private void LisaaPelaaja(Vector paikka, double leveys, double korkeus)
     {
-        pelaaja1 = new PlatformCharacter(leveys, korkeus);
+        pelaaja1 = new PlatformCharacter(leveys*3, korkeus*3);
         pelaaja1.Position = paikka;
-        pelaaja1.Mass = 4.0;
+        pelaaja1.Mass = 5.0;
         pelaaja1.Image = pelaajanKuva;
-        AddCollisionHandler(pelaaja1, "tahti", TormaaTahteen);
-        Add(pelaaja1);
+        Add(pelaaja1, 1);
     }
 
     private void LisaaNappaimet()
@@ -110,16 +127,17 @@ public class Pulmapeli : PhysicsGame
         Keyboard.Listen(Key.Left, ButtonState.Down, Liikuta, "Liikkuu vasemmalle", pelaaja1, -NOPEUS);
         Keyboard.Listen(Key.Right, ButtonState.Down, Liikuta, "Liikkuu vasemmalle", pelaaja1, NOPEUS);
         Keyboard.Listen(Key.Up, ButtonState.Pressed, Hyppaa, "Pelaaja hyppää", pelaaja1, HYPPYNOPEUS);
-
         ControllerOne.Listen(Button.Back, ButtonState.Pressed, Exit, "Poistu pelistä");
-
+        Keyboard.Listen(Key.E, ButtonState.Pressed, PainaaNappia, "paina nappia");
         ControllerOne.Listen(Button.DPadLeft, ButtonState.Down, Liikuta, "Pelaaja liikkuu vasemmalle", pelaaja1,
             -NOPEUS);
         ControllerOne.Listen(Button.DPadRight, ButtonState.Down, Liikuta, "Pelaaja liikkuu oikealle", pelaaja1, NOPEUS);
         ControllerOne.Listen(Button.A, ButtonState.Pressed, Hyppaa, "Pelaaja hyppää", pelaaja1, HYPPYNOPEUS);
+       
 
         PhoneBackButton.Listen(ConfirmExit, "Lopeta peli");
     }
+    
 
     private void Liikuta(PlatformCharacter hahmo, double nopeus)
     {
@@ -131,10 +149,38 @@ public class Pulmapeli : PhysicsGame
         hahmo.Jump(nopeus);
     }
 
-    private void TormaaTahteen(PhysicsObject hahmo, PhysicsObject tahti)
+    void PainaaNappia()
     {
-        MaaliAani.Play();
-        MessageDisplay.Add("Keräsit tähden!");
-        tahti.Destroy();
+
+       
+
+        Vector reuna = pelaaja1.Position;
+        PhysicsObject nappiKohdalla = null;
+        for (int i = 0; i < napit.Count; i++)
+        {
+            if (napit[i].IsInside(reuna))
+            {
+                nappiKohdalla = napit[i];
+            }
+        }
+
+        if (nappiKohdalla != null)
+        {
+            if (onkoTasoAlhaalla == false)
+            {
+                LiikkuvaTaso.Y = LiikkuvaTasoY - 200;
+                onkoTasoAlhaalla = true;
+
+            }
+            else
+            {
+                LiikkuvaTaso.Y = LiikkuvaTasoY + 200;
+                onkoTasoAlhaalla = false;
+            }
+        }
+        
+     
+
+       
     }
 }
