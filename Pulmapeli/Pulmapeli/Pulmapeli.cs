@@ -21,6 +21,8 @@ public class Pulmapeli : PhysicsGame
     private Image tahtiKuva = LoadImage("tahti.png");
     private Image NapinKuva = LoadImage("nappiLapinakyva.png");
     private Image TaustaKuva = LoadImage("taustakuva");
+    private Image TasonKuva = LoadImage("Taso");
+    private Image LiikkuvanTasonKuva = LoadImage("LiikkuvaTaso");
 
     private SoundEffect MaaliAani = LoadSoundEffect("maali.wav");
 
@@ -45,9 +47,11 @@ public class Pulmapeli : PhysicsGame
         kentta.SetTileMethod('*', LisaaTahti);
         kentta.SetTileMethod('P', LisaaPelaaja);
         kentta.SetTileMethod('n', LisaaNappi);
+        kentta.SetTileMethod('=', LisaaLiikkuvaTaso);
+        
         kentta.Execute(RUUDUN_KOKO, RUUDUN_KOKO);
-        Level.Background.Image = TaustaKuva;
-        Level.Background.ScaleToLevelFull();
+      //  Level.Background.Image = TaustaKuva;
+     //   Level.Background.ScaleToLevelFull();
         
     }
 
@@ -55,8 +59,16 @@ public class Pulmapeli : PhysicsGame
     {
         PhysicsObject taso = PhysicsObject.CreateStaticObject(leveys, korkeus);
         taso.Position = paikka;
-        taso.Color = Color.Green;
+        taso.Image = LiikkuvanTasonKuva;
         Add(taso);
+    }
+
+    private void LisaaLiikkuvaTaso(Vector paikka, double leveys, double korkeus)
+    {
+        PhysicsObject LiikkuvaTaso = PhysicsObject.CreateStaticObject(leveys*2, korkeus);
+        LiikkuvaTaso.Position = paikka;
+        LiikkuvaTaso.Image = LiikkuvanTasonKuva;
+        Add(LiikkuvaTaso);
     }
 
     private void LisaaTahti(Vector paikka, double leveys, double korkeus)
