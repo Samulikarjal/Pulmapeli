@@ -1556,11 +1556,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\MyTemp\\Samulin pelit\\Pulmapeli\\Pulmapeli\\Pulmapeli\\Pulmapeli.csproj",
+      "projectUniqueName": "C:\\MyTemp\\Samulin pelit\\Pulmapeli\\Pulmapeli\\Puzzle game\\Pulmapeli\\Pulmapeli\\Pulmapeli.csproj",
       "projectName": "Pulmapeli",
-      "projectPath": "C:\\MyTemp\\Samulin pelit\\Pulmapeli\\Pulmapeli\\Pulmapeli\\Pulmapeli.csproj",
+      "projectPath": "C:\\MyTemp\\Samulin pelit\\Pulmapeli\\Pulmapeli\\Puzzle game\\Pulmapeli\\Pulmapeli\\Pulmapeli.csproj",
       "packagesPath": "C:\\Users\\karsam\\.nuget\\packages\\",
-      "outputPath": "C:\\MyTemp\\Samulin pelit\\Pulmapeli\\Pulmapeli\\Pulmapeli\\obj\\",
+      "outputPath": "C:\\MyTemp\\Samulin pelit\\Pulmapeli\\Pulmapeli\\Puzzle game\\Pulmapeli\\Pulmapeli\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

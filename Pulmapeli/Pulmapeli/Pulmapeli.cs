@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Numerics;
 using Jypeli;
 using Jypeli.Assets;
 using Jypeli.Controls;
 using Jypeli.Widgets;
+using Vector = Jypeli.Vector;
 
 namespace Pulmapeli;
 
@@ -17,8 +19,10 @@ public class Pulmapeli : PhysicsGame
 
     private Image pelaajanKuva = LoadImage("norsu.png");
     private Image tahtiKuva = LoadImage("tahti.png");
+    private Image NapinKuva = LoadImage("nappiLapinakyva.png");
+    private Image TaustaKuva = LoadImage("taustakuva");
 
-    private SoundEffect maaliAani = LoadSoundEffect("maali.wav");
+    private SoundEffect MaaliAani = LoadSoundEffect("maali.wav");
 
     public override void Begin()
     {
@@ -39,10 +43,12 @@ public class Pulmapeli : PhysicsGame
         TileMap kentta = TileMap.FromLevelAsset("kentta1.txt");
         kentta.SetTileMethod('#', LisaaTaso);
         kentta.SetTileMethod('*', LisaaTahti);
-        kentta.SetTileMethod('N', LisaaPelaaja);
+        kentta.SetTileMethod('P', LisaaPelaaja);
+        kentta.SetTileMethod('n', LisaaNappi);
         kentta.Execute(RUUDUN_KOKO, RUUDUN_KOKO);
-        Level.CreateBorders();
-        Level.Background.CreateGradient(Color.White, Color.SkyBlue);
+        Level.Background.Image = TaustaKuva;
+        Level.Background.ScaleToLevelFull();
+        
     }
 
     private void LisaaTaso(Vector paikka, double leveys, double korkeus)
@@ -62,6 +68,17 @@ public class Pulmapeli : PhysicsGame
         tahti.Tag = "tahti";
         Add(tahti);
     }
+
+    private void LisaaNappi(Vector paikka, double leveys, double korkeus)
+    {
+        GameObject nappi = new GameObject(leveys,korkeus);
+        nappi.Image = NapinKuva;
+        nappi.Position = paikka;
+       
+        Add(nappi);
+
+    }
+    
 
     private void LisaaPelaaja(Vector paikka, double leveys, double korkeus)
     {
@@ -104,7 +121,7 @@ public class Pulmapeli : PhysicsGame
 
     private void TormaaTahteen(PhysicsObject hahmo, PhysicsObject tahti)
     {
-        maaliAani.Play();
+        MaaliAani.Play();
         MessageDisplay.Add("Keräsit tähden!");
         tahti.Destroy();
     }

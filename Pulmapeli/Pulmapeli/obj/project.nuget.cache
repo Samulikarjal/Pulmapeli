@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "89THgDumD3LSdQwmAWqi5oXpzA3iBgp0WD3ZnXh2AqnGYrNC9PEmkew3EM7bake+V9pp5+PeAayOT1NZdyRXlg==",
+  "dgSpecHash": "a3hBs4uBQxd8R8Vu7E5YKrq5RBtzDoH33QZw7JczBo/qxWRgN/wJSzRGAHI/HaFI7XcfQej/YDAE5GN886c1LA==",
   "success": true,
-  "projectFilePath": "C:\\MyTemp\\Samulin pelit\\Pulmapeli\\Pulmapeli\\Pulmapeli\\Pulmapeli.csproj",
+  "projectFilePath": "C:\\MyTemp\\Samulin pelit\\Pulmapeli\\Pulmapeli\\Puzzle game\\Pulmapeli\\Pulmapeli\\Pulmapeli.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\karsam\\.nuget\\packages\\cyotek.drawing.bitmapfont\\2.0.4\\cyotek.drawing.bitmapfont.2.0.4.nupkg.sha512",
     "C:\\Users\\karsam\\.nuget\\packages\\fontstashsharp\\1.2.8\\fontstashsharp.1.2.8.nupkg.sha512",

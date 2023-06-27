@@ -8,8 +8,8 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Jypeli.NET" Version="11.*"/>
-        <PackageReference Include="Jypeli.FarseerPhysics.NET" Version="2.*"/>
+        <PackageReference Include="Jypeli.NET" Version="11.*" />
+        <PackageReference Include="Jypeli.FarseerPhysics.NET" Version="2.*" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,6 +24,15 @@
         </None>
         <None Update="Content\tahti.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+        </None>
+        <None Remove="Content\nappi.jpg" />
+        <None Remove="Content\nappi.png" />
+        <None Update="Content\nappiLapinakyva.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Remove="Content\tausta.jpg" />
+        <None Update="Content\taustakuva.jpg">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>
 
