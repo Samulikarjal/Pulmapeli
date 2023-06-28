@@ -22,9 +22,6 @@
         <None Update="Content\norsu.png">
             <CopyToOutputDirectory>Always</CopyToOutputDirectory>
         </None>
-        <None Update="Content\tahti.png">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
         <None Remove="Content\nappi.jpg" />
         <None Remove="Content\nappi.png" />
         <None Update="Content\nappiLapinakyva.png">
@@ -44,6 +41,21 @@
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
         <None Update="Content\pompputaso.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Content\kentta2.txt">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Content\liikkuvataso2.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Content\ovi.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Content\seina.png">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+        <None Update="Content\avain.png">
           <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
         </None>
     </ItemGroup>

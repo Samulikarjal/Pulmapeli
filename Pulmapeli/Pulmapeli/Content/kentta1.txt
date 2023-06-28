@@ -1,32 +1,43 @@
 
-
-
-
-
-
-
-
-
-
-
-         P
-#############  p     n
+                            
+                                     SSSSSSSSSSSSS   =    SSSSSSSSSSSSS
+                                     SSSSSSSSSSSSS      SSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSS         SSSSSSSSSSSSSS 
+                                     SSSSSSSSSSSSS             SSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSS          SSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSS          SSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSS          SSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSS            SSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSS    n       SSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSS            SSSSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS 
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                  O                   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+             P       n     =            
+           #############  p     
 ´                             
-                ###### =
-                
-                               
+                                                      
                                                      M
+                                                
                                                    ####
-                       
-
-
-                                                  
-
-
-
-K                                   n          =    
-#######             p            ##############
+                                               SSSSSSSSSSSS  SSS     
+                                               SSSSSSSSSSSS    SS
+                  ######                       SSSS SSSSSSS    SS
+                                               SSSSSSSSSSSS    SSSSS
+                                                                                                                                                                                                                                                  
+                                                  SSS
+                                                            =
+                                               ############
+                                               SSSS
+                                               SSSS
+    *                                 N      = SSSS      
+#######             p        H   ##############
                                          
-                                     
-                                                          N
+                                                       
+                                                         * 
 TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######TTTTTTTTTTTTTTTT

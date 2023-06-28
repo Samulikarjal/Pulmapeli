@@ -65,7 +65,6 @@ C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Pulmapeli
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\kentta1.txt
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\maali.wav
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\norsu.png
-C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\tahti.png
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Pulmapeli.deps.json
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Pulmapeli.runtimeconfig.json
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Pulmapeli.dll
@@ -124,3 +123,8 @@ C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\T
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\taustakuva.jpg
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\vesi.png
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\pompputaso.png
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\kentta2.txt
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\liikkuvataso2.png
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\ovi.png
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\seina.png
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\avain.png
