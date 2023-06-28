@@ -19,23 +19,24 @@ public class Pulmapeli : PhysicsGame
     private PlatformCharacter pelaaja1;
     int LiikkuvaTasoY;
     private int LiikkuvaTasoX;
-    private Boolean onkoTasoAlhaalla = false;
 
-    private List<PhysicsObject> napit = new List<PhysicsObject>(); 
+
+    private int kenttaNro = 1;
+    private List<PhysicsObject> napit = new List<PhysicsObject>();
+    private List<PhysicsObject> hissit = new List<PhysicsObject>();
+    private int NappiaPainettu = 0;
 
     private Image pelaajanKuva = LoadImage("norsu.png");
     private Image tahtiKuva = LoadImage("tahti.png");
     private Image NapinKuva = LoadImage("nappiLapinakyva.png");
     private Image TaustaKuva = LoadImage("taustakuva");
     private Image TasonKuva = LoadImage("Taso");
+    private Image VesiKuva = LoadImage("vesi");
     private Image LiikkuvanTasonKuva = LoadImage("LiikkuvaTaso");
-
+    private Image PomppuTasonKuva = LoadImage("pompputaso");
     private SoundEffect MaaliAani = LoadSoundEffect("maali.wav");
 
-    private Vector LiikkuuYlos = new Vector(0, 200);
-    private Vector LiikkuuAlas = new Vector(0, -200);
-    private Vector LiikkuuVasemmalle = new Vector(-200, 0);
-    private Vector LiikkuuOikealle = new Vector(200, 0);
+    
 
     private PhysicsObject LiikkuvaTaso;
     private PhysicsObject nappi;
@@ -43,25 +44,27 @@ public class Pulmapeli : PhysicsGame
     public override void Begin()
     {
         Gravity = new Vector(0, -1000);
-
-        LuoKentta();
+        PaaValikko();
+        LuoKentta($"kentta{kenttaNro}");
         LisaaNappaimet();
 
         Camera.Follow(pelaaja1);
-        Camera.ZoomFactor = 0.8;
+        Camera.ZoomFactor = 0.5;
         Camera.StayInLevel = true;
 
         MasterVolume = 0.5;
     }
 
-    private void LuoKentta()
+    private void LuoKentta(string kenttanro)
     {
-        TileMap kentta = TileMap.FromLevelAsset("kentta1.txt");
+        TileMap kentta = TileMap.FromLevelAsset(kenttanro);
         kentta.SetTileMethod('#', LisaaTaso);
         kentta.SetTileMethod('*', LisaaTahti);
         kentta.SetTileMethod('P', LisaaPelaaja);
         kentta.SetTileMethod('n', LisaaNappi);
         kentta.SetTileMethod('=', LisaaLiikkuvaTaso);
+        kentta.SetTileMethod('T', LisaaVesi);
+        kentta.SetTileMethod('p', LisaaPomppuTaso);
         
         kentta.Execute(RUUDUN_KOKO, RUUDUN_KOKO);
         Level.Background.Image = TaustaKuva;
@@ -69,6 +72,42 @@ public class Pulmapeli : PhysicsGame
         
     }
 
+    void SeuraavaKentta()
+    {
+        ClearAll();
+        if (kenttaNro > 3) Exit();
+        LuoKentta($"kentta{kenttaNro}");
+        
+
+    }
+
+  
+
+    void PaaValikko()
+    {
+        MultiSelectWindow paaValikko = new MultiSelectWindow("Main menu", "Level 1", "Level 2", "Level 3", "Level 4", "Exit"); 
+        Add(paaValikko);
+        paaValikko.AddItemHandler(0, Kentta);
+        paaValikko.AddItemHandler(1, Kentta);
+        paaValikko.AddItemHandler(2, Kentta);
+        paaValikko.AddItemHandler(3, Kentta);
+        paaValikko.AddItemHandler(4, Exit);
+        PushButton[] painikkeet = paaValikko.Buttons;
+        
+        void Kentta(List<int> painikkeet)
+        {
+            kenttaNro = painikkeet.Count;
+        }
+    }
+
+    void LisaaVesi(Vector paikka, double leveys, double korkeus)
+    {
+        PhysicsObject vesi = PhysicsObject.CreateStaticObject(leveys, korkeus);
+        vesi.Position = paikka;
+        vesi.Image = VesiKuva;
+        vesi.Tag = "vesi";
+        Add(vesi);
+    }
     private void LisaaTaso(Vector paikka, double leveys, double korkeus)
     {
         PhysicsObject taso = PhysicsObject.CreateStaticObject(leveys, korkeus);
@@ -77,13 +116,22 @@ public class Pulmapeli : PhysicsGame
         Add(taso);
     }
 
+    void LisaaPomppuTaso(Vector paikka, double leveys, double korkeus)
+    {
+        PhysicsObject PomppuTaso = PhysicsObject.CreateStaticObject(leveys*4, korkeus*2);
+        PomppuTaso.Position = paikka;
+        PomppuTaso.Image = PomppuTasonKuva;
+     
+        PomppuTaso.Tag = "pomppu";
+        Add(PomppuTaso);
+    }
     private void LisaaLiikkuvaTaso(Vector paikka, double leveys, double korkeus)
     {
         LiikkuvaTaso = PhysicsObject.CreateStaticObject(leveys*4, korkeus*2);
         LiikkuvaTaso.Position = paikka;
         LiikkuvaTaso.Image = LiikkuvanTasonKuva;
-        LiikkuvaTaso.Y = LiikkuvaTasoY;
         Add(LiikkuvaTaso);
+        hissit.Add(LiikkuvaTaso);
     }
 
     private void LisaaTahti(Vector paikka, double leveys, double korkeus)
@@ -116,6 +164,8 @@ public class Pulmapeli : PhysicsGame
         pelaaja1.Position = paikka;
         pelaaja1.Mass = 5.0;
         pelaaja1.Image = pelaajanKuva;
+        AddCollisionHandler(pelaaja1, "vesi" ,PelaajaKuolee);
+        AddCollisionHandler(pelaaja1, "pomppu", PelaajaPomppaa);
         Add(pelaaja1, 1);
     }
 
@@ -149,6 +199,18 @@ public class Pulmapeli : PhysicsGame
         hahmo.Jump(nopeus);
     }
 
+    void PelaajaPomppaa(PhysicsObject pelaaja1, PhysicsObject pompputaso)
+    {
+        Hyppaa((PlatformCharacter)pelaaja1, HYPPYNOPEUS*1.5);
+    }
+
+   
+
+    void PelaajaKuolee(PhysicsObject pelaaja1, PhysicsObject vesi)
+    {
+        pelaaja1.Destroy();
+        SeuraavaKentta();
+    }
     void PainaaNappia()
     {
 
@@ -164,19 +226,16 @@ public class Pulmapeli : PhysicsGame
             }
         }
 
-        if (nappiKohdalla != null)
+        if ((nappiKohdalla != null) && (NappiaPainettu == 0))
         {
-            if (onkoTasoAlhaalla == false)
-            {
-                LiikkuvaTaso.Y = LiikkuvaTasoY - 200;
-                onkoTasoAlhaalla = true;
+            LiikkuvaTaso.Y = LiikkuvaTasoY - 250;
+            NappiaPainettu = 1;
+        }
 
-            }
-            else
-            {
-                LiikkuvaTaso.Y = LiikkuvaTasoY + 200;
-                onkoTasoAlhaalla = false;
-            }
+        if ((nappiKohdalla != null) && (NappiaPainettu == 1))
+        {
+            LiikkuvaTaso.Y = LiikkuvaTasoY + 250;
+            NappiaPainettu = 0;
         }
         
      

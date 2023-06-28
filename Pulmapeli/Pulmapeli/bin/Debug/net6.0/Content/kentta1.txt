@@ -5,15 +5,28 @@
 
 
 
+
+
+
+
          P
-#############
-´                   n           n
+#############  p     n
+´                             
                 ###### =
+                
+                               
+                                                     M
+                                                   ####
+                       
+
+
+                                                  
 
 
 
-
-
+K                                   n          =    
+#######             p            ##############
                                          
                                      
-#######################################################
+                                                          N
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT#######TTTTTTTTTTTTTTTT

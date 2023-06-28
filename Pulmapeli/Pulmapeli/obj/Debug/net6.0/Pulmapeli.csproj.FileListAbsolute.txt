@@ -122,3 +122,5 @@ C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\obj\Debug\net6.0\Pulmapeli
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\obj\Debug\net6.0\Pulmapeli.genruntimeconfig.cache
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\Taso.png
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\taustakuva.jpg
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\vesi.png
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\pompputaso.png
