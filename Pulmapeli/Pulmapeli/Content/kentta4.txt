@@ -8,13 +8,13 @@
                                   
                TTTTTTTTTTTTT  6     TTTTTTTTTTTTTTTTTTTTTTTTT
                SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS             
-               SSSSSSSSSSSSS   *    SSSSSSSSSSSSSSSSSSSSSSSSS
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS              p
-               SSSSSSSSSSSSS      2 SSSSSSSSSSSSSSSSSSSSSSSSS             
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS 
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS 
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS   
-                                                 7                               ############                                                                                                   
+               SSSSSSSSSSSSS   *                    SSSSSSSSS
+               SSSSSSSSSSSSS                        SSSSSSSSS              p
+               SSSSSSSSSSSSS                        SSSSSSSSS             
+               SSSSSSSSSSSSS         SSSSSSSSS      SSSSSSSSS 
+               SSSSSSSSSSSSS         SSSSSSSSS      SSSSSSSSSSSSS 
+               SSSSSSSSSSSSS         SSSSSSSSS   7  SSSSSSSSSSSS   
+               SSSSSSSSSSSSS         SSSSSSSSS      SSSSSSSSSSSSS        ############                                                                                                   
                                
                                 
      3                                                           

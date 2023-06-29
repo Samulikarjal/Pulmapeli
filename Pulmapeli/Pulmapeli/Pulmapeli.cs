@@ -16,8 +16,8 @@ namespace Pulmapeli;
 
 public class Pulmapeli : PhysicsGame
 {
-    private const double NOPEUS = 200;
-    private const double hyppyNopeus = 1000;
+    private const double NOPEUS = 400;
+    private const double hyppyNopeus = 1500;
     private const int RUUDUN_KOKO = 40;
 
     private PlatformCharacter pelaaja1;
@@ -63,14 +63,10 @@ public class Pulmapeli : PhysicsGame
     {
        
         Gravity = new Vector(0, -1000);
-       
-       
         LisaaNappaimet();
-
         Camera.Follow(pelaaja1);
-        Camera.ZoomFactor = 0.5;
+        Camera.ZoomFactor = 0.3;
         Camera.StayInLevel = true;
-
         MasterVolume = 0.5;
         PaaValikko();
     }
@@ -122,10 +118,11 @@ public class Pulmapeli : PhysicsGame
         
         kentta.Execute(RUUDUN_KOKO, RUUDUN_KOKO*2);
         AlustaNapit();
+        Gravity = new Vector(0, -1000);
         Level.Background.Image = TaustaKuva;
         Level.Background.ScaleToLevelFull();
         Camera.Follow(pelaaja1);
-        Camera.ZoomFactor = 0.5;
+        Camera.ZoomFactor = 0.3;
         //Camera.ZoomToAllObjects();
         //Camera.StayInLevel = true;
 
@@ -209,6 +206,7 @@ public class Pulmapeli : PhysicsGame
         vesi.Position = paikka;
         vesi.Image = VesiKuva;
         vesi.Tag = "vesi";
+        vesi.AddCollisionIgnoreGroup(1);
         Add(vesi);
     }
     private void LisaaTaso(Vector paikka, double leveys, double korkeus)
@@ -216,6 +214,7 @@ public class Pulmapeli : PhysicsGame
         PhysicsObject taso = PhysicsObject.CreateStaticObject(leveys, korkeus/2);
         taso.Position = paikka;
         taso.Image = TasonKuva;
+        taso.AddCollisionIgnoreGroup(1);
         Add(taso);
     }
 
@@ -235,6 +234,7 @@ public class Pulmapeli : PhysicsGame
         PhysicsObject seina = PhysicsObject.CreateStaticObject(leveys, korkeus);
         seina.Position = paikka;
         seina.Image = Seina;
+        seina.AddCollisionIgnoreGroup(1);
         Add(seina, 1);
     }
 
@@ -265,7 +265,7 @@ public class Pulmapeli : PhysicsGame
 
     private void LisaaNappi(Vector paikka, double leveys, double korkeus, Image kuva, string tagi)
     {
-        Nappi nappi = new Nappi(leveys*5,korkeus*3);
+        Nappi nappi = new Nappi(leveys*4,korkeus*3);
         
         nappi.Position = paikka;
         nappi.IgnoresCollisionResponse = true;
@@ -278,11 +278,11 @@ public class Pulmapeli : PhysicsGame
     
     private void LisaaHissi(Vector paikka, double leveys, double korkeus, Image kuva, string tagi)
     {
-        Hissi hissi = new Hissi(leveys*5,korkeus*3, Hissi1, paikka, paikka + new Vector(0, -500));
+        Hissi hissi = new Hissi(leveys*5,korkeus*2, kuva, paikka, paikka + new Vector(0, -450));
       
         hissi.Position = paikka;
-        hissi.Image = kuva;
         hissi.Tag = tagi;
+        hissi.AddCollisionIgnoreGroup(1);
         Add(hissi);
         hissit.Add(hissi);
     }
@@ -304,7 +304,7 @@ public class Pulmapeli : PhysicsGame
 
     private void LisaaPelaaja(Vector paikka, double leveys, double korkeus)
     {
-        pelaaja1 = new PlatformCharacter(leveys*3, korkeus*3);
+        pelaaja1 = new PlatformCharacter(leveys*3, korkeus*2);
         pelaaja1.Position = paikka;
         pelaaja1.Mass = 5.0;
         pelaaja1.Image = pelaajanKuva;
@@ -356,6 +356,7 @@ public class Pulmapeli : PhysicsGame
     void PelaajaKuolee(PhysicsObject pelaaja1, PhysicsObject vesi)
     {
         pelaaja1.Destroy();
+        Avainkeratty = 0;
         SeuraavaKentta();
     }
 
@@ -380,7 +381,7 @@ public class Pulmapeli : PhysicsGame
         {
             if (nappi.IsInsideRect(pelaaja1.Position))
             {
-               nappi.hissi.Liikuta();
+                nappi.hissi.Liikuta();
             }
         }
     }
@@ -405,7 +406,7 @@ class Hissi : PhysicsObject
 
     public void Liikuta()
     {
-        if (Math.Abs(this.Position.X - sijainti1.X) < 2 && (Math.Abs(this.Position.Y - sijainti1.Y) < 2))
+        if (Math.Abs(this.Position.X - sijainti1.X) < 10 && (Math.Abs(this.Position.Y - sijainti1.Y) < 10))
         {
             this.MoveTo(sijainti2, 150);
         }
@@ -426,8 +427,5 @@ class Nappi : PhysicsObject
         
     }
 
-    public void Paina(Vector paikka)
-    {
-        hissi.Move(paikka);
-    }
+   
 }

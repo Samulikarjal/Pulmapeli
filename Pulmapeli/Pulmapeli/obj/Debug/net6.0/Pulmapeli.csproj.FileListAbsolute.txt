@@ -135,3 +135,5 @@ C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\h
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\hissi2.png
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\hissi3.png
 C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\hissi4.png
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\kentta3.txt
+C:\MyTemp\Samulin pelit\Pulmapeli\Pulmapeli\Pulmapeli\bin\Debug\net6.0\Content\kentta4.txt
