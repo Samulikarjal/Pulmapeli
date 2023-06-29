@@ -23,13 +23,16 @@ public class Pulmapeli : PhysicsGame
     private PlatformCharacter pelaaja1;
     private int Avainkeratty = 0;
     private int kenttaNro = 1;
-    private List<PhysicsObject> napit = new List<PhysicsObject>();
-    private List<PhysicsObject> hissit = new List<PhysicsObject>();
-    private bool NappiaPainettu = false;
-
+   
+    
+    private bool Nappia1Painettu = false;
+    private bool Nappia2Painettu = false;
+    private bool Nappia3Painettu = false;
+    private bool Nappia4Painettu = false;
+    private Vector reuna;
     private Image pelaajanKuva = LoadImage("norsu.png");
     private Image avainKuva = LoadImage("avain");
-    private Image NapinKuva = LoadImage("nappiLapinakyva.png");
+   
     private Image TaustaKuva = LoadImage("taustakuva");
     private Image TasonKuva = LoadImage("Taso");
     private Image VesiKuva = LoadImage("vesi");
@@ -39,14 +42,18 @@ public class Pulmapeli : PhysicsGame
     private Image OvenKuva = LoadImage("ovi");
     private SoundEffect MaaliAani = LoadSoundEffect("maali.wav");
     private Image Seina = LoadImage("seina");
+    private Image Nappi1 = LoadImage("nappi1");
+    private Image Nappi2 = LoadImage("nappi2");
+    private Image Nappi3 = LoadImage("nappi3");
+    private Image Nappi4 = LoadImage("nappi4");
+    private Image Hissi1 = LoadImage("hissi1");
+    private Image Hissi2 = LoadImage("hissi2");
+    private Image Hissi3 = LoadImage("hissi3");
+    private Image Hissi4 = LoadImage("hissi4");
 
-
-    private PhysicsObject LiikkuvaTaso2;
-    private PhysicsObject LiikkuvaTaso;
-    private PhysicsObject nappi;
-
-    private Hissi[] hissit1;
-    private Nappi[] napit1;
+    private List<Nappi> napit = new List<Nappi>();
+    private List<Hissi> hissit = new List<Hissi>();
+   
 
     
     
@@ -54,14 +61,7 @@ public class Pulmapeli : PhysicsGame
     
     public override void Begin()
     {
-        hissit1 = new Hissi[]
-        {
-            new Hissi(RUUDUN_KOKO, RUUDUN_KOKO, LiikkuvanTasonKuva, 1)
-        };
-        napit1 = new Nappi[]
-        {
-            new Nappi(RUUDUN_KOKO, RUUDUN_KOKO, 1)
-        };
+       
         Gravity = new Vector(0, -1000);
        
        
@@ -81,21 +81,51 @@ public class Pulmapeli : PhysicsGame
         kentta.SetTileMethod('#', LisaaTaso);
         kentta.SetTileMethod('*', LisaaAvain);
         kentta.SetTileMethod('P', LisaaPelaaja);
-        kentta.SetTileMethod('n', LisaaNappi);
-        kentta.SetTileMethod('=', LisaaLiikkuvaTaso);
+        kentta.SetTileMethod('1', delegate(Vector position, double width, double height)
+        {
+            LisaaNappi(position, width, height, Nappi1, "1");
+        });
+        kentta.SetTileMethod('2', delegate(Vector position, double width, double height)
+        {
+            LisaaNappi(position, width, height, Nappi2, "2");
+        });
+        kentta.SetTileMethod('3', delegate(Vector position, double width, double height)
+        {
+            LisaaNappi(position, width, height, Nappi3, "3");
+        });
+        kentta.SetTileMethod('4', delegate(Vector position, double width, double height)
+        {
+            LisaaNappi(position, width, height, Nappi4, "4");
+        });
+        kentta.SetTileMethod('5', delegate(Vector position, double width, double height)
+        {
+            LisaaHissi(position, width, height, Hissi1, "1");
+        });
+        kentta.SetTileMethod('6', delegate(Vector position, double width, double height)
+        {
+            LisaaHissi(position, width, height, Hissi2, "2");
+        });
+        kentta.SetTileMethod('7', delegate(Vector position, double width, double height)
+        {
+            LisaaHissi(position, width, height, Hissi3, "3");
+        });
+        kentta.SetTileMethod('8', delegate(Vector position, double width, double height)
+        {
+            LisaaHissi(position, width, height, Hissi4, "4");
+        });
         kentta.SetTileMethod('T', LisaaVesi);
         kentta.SetTileMethod('p', LisaaPomppuTaso);
         kentta.SetTileMethod('O', LisaaOvi);
         kentta.SetTileMethod('M', LisaaMaali);
         kentta.SetTileMethod('S', LisaaSeina);
-        kentta.SetTileMethod('N', LisaaUusiNappi);
-        kentta.SetTileMethod('H', LisaaHissi);
+       
         
         kentta.Execute(RUUDUN_KOKO, RUUDUN_KOKO*2);
+        AlustaNapit();
         Level.Background.Image = TaustaKuva;
         Level.Background.ScaleToLevelFull();
         Camera.Follow(pelaaja1);
-        Camera.ZoomFactor = 0.1;
+        Camera.ZoomFactor = 0.5;
         //Camera.ZoomToAllObjects();
         //Camera.StayInLevel = true;
 
@@ -104,6 +134,22 @@ public class Pulmapeli : PhysicsGame
 
     }
 
+    void AlustaNapit()
+    {
+        foreach (var nappi in napit)
+        {
+            foreach (var hissi in hissit)
+            {
+                if (hissi.Tag.ToString() != nappi.Tag.ToString())
+                {
+                    continue;
+                }
+
+                nappi.hissi = hissi;
+                break;
+            }
+        }
+    }
     void SeuraavaKentta()
     {
         ClearAll();
@@ -192,14 +238,7 @@ public class Pulmapeli : PhysicsGame
         Add(seina, 1);
     }
 
-    void LisaaUusiNappi(Vector paikka, double leveys, double korkeus)
-    {
-        
-    }
-    void LisaaHissi(Vector paikka, double leveys, double korkeus)
-    {
-       // Hissi hissi = new Hissi(leveys, korkeus, LiikkuvanTasonKuva, );
-    }
+   
     void LisaaPomppuTaso(Vector paikka, double leveys, double korkeus)
     {
         PhysicsObject PomppuTaso = PhysicsObject.CreateStaticObject(leveys*4, korkeus*2);
@@ -209,15 +248,7 @@ public class Pulmapeli : PhysicsGame
         PomppuTaso.Tag = "pomppu";
         Add(PomppuTaso);
     }
-    private void LisaaLiikkuvaTaso(Vector paikka, double leveys, double korkeus)
-    {
-        LiikkuvaTaso = PhysicsObject.CreateStaticObject(leveys*8, korkeus*2);
-        LiikkuvaTaso.Position = paikka;
-        LiikkuvaTaso.Image = LiikkuvanTasonKuva;
-       
-        Add(LiikkuvaTaso);
-        hissit.Add(LiikkuvaTaso);
-    }
+  
 
   
 
@@ -232,18 +263,31 @@ public class Pulmapeli : PhysicsGame
         Add(avain);
     }
 
-    private void LisaaNappi(Vector paikka, double leveys, double korkeus)
+    private void LisaaNappi(Vector paikka, double leveys, double korkeus, Image kuva, string tagi)
     {
-        PhysicsObject nappi = new PhysicsObject(leveys*5,korkeus*3);
-        nappi.Image = NapinKuva;
+        Nappi nappi = new Nappi(leveys*5,korkeus*3);
+        
         nappi.Position = paikka;
         nappi.IgnoresCollisionResponse = true;
         nappi.IgnoresGravity = true;
-        nappi.Tag = "nappi";
+        nappi.Image = kuva;
+        nappi.Tag = tagi;
         Add(nappi);
         napit.Add(nappi);
-
     }
+    
+    private void LisaaHissi(Vector paikka, double leveys, double korkeus, Image kuva, string tagi)
+    {
+        Hissi hissi = new Hissi(leveys*5,korkeus*3, Hissi1, paikka, paikka + new Vector(0, -500));
+      
+        hissi.Position = paikka;
+        hissi.Image = kuva;
+        hissi.Tag = tagi;
+        Add(hissi);
+        hissit.Add(hissi);
+    }
+    
+
 
     private void LisaaMaali(Vector paikka, double leveys, double korkeus)
     {
@@ -281,6 +325,7 @@ public class Pulmapeli : PhysicsGame
         Keyboard.Listen(Key.Up, ButtonState.Pressed, Hyppaa, "Pelaaja hyppää", pelaaja1, hyppyNopeus);
         ControllerOne.Listen(Button.Back, ButtonState.Pressed, Exit, "Poistu pelistä");
         Keyboard.Listen(Key.E, ButtonState.Pressed, PainaaNappia, "paina nappia");
+       // Keyboard.Listen(Key.E, ButtonState.Pressed, PainaaNappia2, "paina nappia");
         ControllerOne.Listen(Button.DPadLeft, ButtonState.Down, Liikuta, "Pelaaja liikkuu vasemmalle", pelaaja1,
             -NOPEUS);
         ControllerOne.Listen(Button.DPadRight, ButtonState.Down, Liikuta, "Pelaaja liikkuu oikealle", pelaaja1, NOPEUS);
@@ -331,57 +376,54 @@ public class Pulmapeli : PhysicsGame
     }
     void PainaaNappia()
     {
-
-       
-
-        Vector reuna = pelaaja1.Position;
-        PhysicsObject nappiKohdalla = null;
-        for (int i = 0; i < napit.Count; i++)
+        foreach (var nappi in napit)
         {
-            if (napit[i].IsInside(reuna))
+            if (nappi.IsInsideRect(pelaaja1.Position))
             {
-                nappiKohdalla = napit[i];
+               nappi.hissi.Liikuta();
             }
         }
-
-        if(NappiaPainettu)
-        {
-            LiikkuvaTaso.Y -= 250;
-           
-        }
-        else
-        {
-            LiikkuvaTaso.Y += 250;
-            
-            
-        }
-        NappiaPainettu = !NappiaPainettu;
-
-       
-            
-        
     }
 }
 
 class Hissi : PhysicsObject
 {
     public Nappi nappi;
-    public int id;
-    public Hissi(double leveys, double korkeus, Image kuva, int id) : base(leveys, korkeus)
+    public Vector sijainti1;
+    public Vector sijainti2;
+    public Hissi(double leveys, double korkeus, Image kuva, Vector sijainti1, Vector sijainti2) : base(leveys, korkeus)
     {
         this.Image = kuva;
-        this.id = id;
+        this.sijainti1 = sijainti1;
+        this.sijainti2 = sijainti2;
+        this.CanRotate = false;
+        this.IgnoresGravity = true;
+        this.Mass = 10000;
+       
+
     }
-   //public Liikuta(Vector paikka)
+
+    public void Liikuta()
+    {
+        if (Math.Abs(this.Position.X - sijainti1.X) < 2 && (Math.Abs(this.Position.Y - sijainti1.Y) < 2))
+        {
+            this.MoveTo(sijainti2, 150);
+        }
+        else
+        {
+            this.MoveTo(sijainti1, 150);
+        }
+        
+    }
 }
 class Nappi : PhysicsObject
 {
     public bool OnkoPainettu = false;
     public Hissi hissi;
-    public int id;
-    public Nappi(double leveys, double korkeus, int id) : base(leveys, korkeus)
+   
+    public Nappi(double leveys, double korkeus) : base(leveys, korkeus)
     {
-        this.id = id;
+        
     }
 
     public void Paina(Vector paikka)

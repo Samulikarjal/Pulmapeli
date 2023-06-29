@@ -1,25 +1,18 @@
 
                             
-                                     SSSSSSSSSSSSS   =    SSSSSSSSSSSSS
-                                     SSSSSSSSSSSSS      SSSSSSSSSSSSSSS
-                                     SSSSSSSSSSSS         SSSSSSSSSSSSSS 
-                                     SSSSSSSSSSSSS             SSSSSSSSSSSSSSSS
-                                     SSSSSSSSSSSSS          SSSSSSSSSSSSSSS
-                                     SSSSSSSSSSSSS          SSSSSSSSSSSSSSSS
-                                     SSSSSSSSSSSS          SSSSSSSSSSSSSSSSSSSSS
-                                     SSSSSSSSSSS            SSSSSSSSSSSSSSSSSSSSSS
-                                     SSSSSSSSSSS    n       SSSSSSSSSSSSSSSSSSSSSS
-                                     SSSSSSSSS            SSSSSSSSSSSSSSSSSSSSSSSS
-                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS 
+                                     SSSSSSSSSSSSSS  6  SSSSSSSSSSSSS
+                           2          SSSSSSSSSSSSSS     SSSSSSSSSSSS
+                                     SSSSSSSSSSSSSS     SSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSS     SSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSS *   SSSSSSSSSSSSSSSSSSSSSSSS
                                      SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
                                      SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
                                      SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
                   O                   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-             P       n     =            
-           #############  p     
+                            p         7    8
+                                  3
+             P       1                 
+      5     #############           4
 ´                             
                                                       
                                                      M
@@ -31,11 +24,8 @@
                                                SSSSSSSSSSSS    SSSSS
                                                                                                                                                                                                                                                   
                                                   SSS
-                                                            =
-                                               ############
-                                               SSSS
-                                               SSSS
-    *                                 N      = SSSS      
+                                                                                                           ############                                               SS                                             SSSS
+    *                                          SSSS      
 #######             p        H   ##############
                                          
                                                        
