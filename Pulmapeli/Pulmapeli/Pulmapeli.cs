@@ -15,11 +15,13 @@ using Vector = Jypeli.Vector;
 namespace Pulmapeli;
 
 // versio 1.0
+// versio 2.0
 public class Pulmapeli : PhysicsGame
 {
     private const double NOPEUS = 400;
     private const double hyppyNopeus = 1500;
     private const int RUUDUN_KOKO = 40;
+    
 
     private PlatformCharacter pelaaja1;
     private int Avainkeratty = 0;
@@ -72,7 +74,11 @@ public class Pulmapeli : PhysicsGame
         Camera.ZoomFactor = 0.3;
         Camera.StayInLevel = true;
         MasterVolume = 0.5;
-        TaustaMusiikki.Play();
+        for (int i = 0; i < 100; i++)
+        {
+            TaustaMusiikki.Play();
+        }
+        
         PaaValikko();
     }
 
@@ -162,8 +168,6 @@ public class Pulmapeli : PhysicsGame
         hissit.Clear();
         if (kenttaNro > 4) Exit();
         LuoKentta($"kentta{kenttaNro}");
-        
-
     }
 
     void Kentta1()
@@ -206,14 +210,14 @@ public class Pulmapeli : PhysicsGame
     void Kentta4()
     {
         kenttaNro = 4;
-        if (kentta3Lapaisty == true)
+       // if (kentta3Lapaisty == true)
         {
             SeuraavaKentta();   
         }
-        else
+      //  else
         {
             MessageDisplay.Add("Complete level 3 to unlock this level!");
-            PaaValikko();
+            //PaaValikko();
         }
 
     }

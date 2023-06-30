@@ -28,8 +28,8 @@
                           O
                           P                                        
           TTTTTTTTTTT#########TTTTTTTTTTTTTTTT                       
-                                                               SS                                        
-                                                               SS      8              
+                                                     #######   SS     8                                   
+                                                               SS                    
                                                                SS                                
                                                                SS                                
                                                                SS            M

@@ -28,9 +28,9 @@
                           O
                           P                                        
           TTTTTTTTTTT#########TTTTTTTTTTTTTTTT                       
-                                                               SS                                        
-                                                               SS      8              
-                                                               SS                                
+                                                               SS     8                                   
+                                                               SS                    
+                                                  #######      SS                                
                                                                SS                                
                                                                SS            M
                                                                SS   *                                                                 *
