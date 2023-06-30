@@ -1,51 +1,60 @@
-﻿
-
-
-                                             2
-                                             
-                                          ######
+﻿  
+  
+  
+                                                                *
+                                                       SSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                       SSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                       SSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                       SSSSSSSS   V   SSSSSSSSSSSSS
+                                                       SSSSSSSS       SSSSSSSSSSSSS
+                                                       SSSSSSSS   V   SSSSSSSSSSSSS
+                                                       SSSSSSSS   6   SSSSSSSSSSSSS
+                                                                      
+                                                                      
+                                          
+                                                               
                    
                                   
-               TTTTTTTTTTTTT  6     TTTTTTTTTTTTTTTTTTTTTTTTT
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS             
-               SSSSSSSSSSSSS   *                    SSSSSSSSS
-               SSSSSSSSSSSSS                        SSSSSSSSS              p
-               SSSSSSSSSSSSS                        SSSSSSSSS             
-               SSSSSSSSSSSSS         SSSSSSSSS      SSSSSSSSS 
-               SSSSSSSSSSSSS         SSSSSSSSS      SSSSSSSSSSSSS 
-               SSSSSSSSSSSSS         SSSSSSSSS   7  SSSSSSSSSSSS   
-               SSSSSSSSSSSSS         SSSSSSSSS      SSSSSSSSSSSSS        ############                                                                                                   
+                   ############                                                                                                   
                                
                                 
      3                                                           
      ############                                   4
-                 TTTTTTTTTTT         ########       TTTTTTTTTTTTTTT
-                                                  
-                                                                           
+                 TTTTTTTTTTT         ########                 
+                                                   TTTTTTTTTTTSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS               
+                                                   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                   SSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSS               
+                                                   SSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSS             
+                                                   SSSSSSSSSS    *   SSSSSSSSSSSSSSSSSSSSSSS
+                                                   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                   p               SSSSSSSSSSTTTTTTTTTSSSSSSSSSSSSSSSSSSSSSSTTTTTTTTTTTTTTTTTTTTTT
+                                                                         
                           O
-                          P                                          8
+                          P                                      6   
                        #########                               
                                                                                                        p
-                                                                    
-                                                            p                                   
+                                                                                   p
+                                                                                               
 
                                                                            M
                                                                   *         
                           ###########                          TTTTTTTTTTTSSSSSSSSSSSSSSSSSSS               
-                                                     5         SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
                                                                SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS                
                                                                SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS             
-                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-              1                                                SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS 
+                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      5
+              1                                                SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   
             ######
+                                                      p
            
-           
-           
-           
-                                                                                                     p
- 
-                                                                            *
-                                                                       ################
+                                                 
+                                                                  ##############
+                                                                                                     
+                                                                                  
+                                                                          
 
 
 TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT

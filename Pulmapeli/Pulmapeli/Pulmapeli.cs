@@ -32,15 +32,17 @@ public class Pulmapeli : PhysicsGame
     private Vector reuna;
     private Image pelaajanKuva = LoadImage("norsu.png");
     private Image avainKuva = LoadImage("avain");
-   
+    public PhysicsObject pommi;
     private Image TaustaKuva = LoadImage("taustakuva");
     private Image TasonKuva = LoadImage("Taso");
     private Image VesiKuva = LoadImage("vesi");
+    private Image PomminKuva = LoadImage("pommi");
     public  Image LiikkuvanTasonKuva = LoadImage("LiikkuvaTaso");
     private Image LiikkuvanTasonKuva2 = LoadImage("LiikkuvaTaso");
     private Image PomppuTasonKuva = LoadImage("pompputaso");
     private Image OvenKuva = LoadImage("ovi");
     private SoundEffect MaaliAani = LoadSoundEffect("maali.wav");
+    //private SoundEffect NapinPainallus = LoadSoundEffect("nappi.mp3");
     private Image Seina = LoadImage("seina");
     private Image Nappi1 = LoadImage("nappi1");
     private Image Nappi2 = LoadImage("nappi2");
@@ -77,6 +79,7 @@ public class Pulmapeli : PhysicsGame
         kentta.SetTileMethod('#', LisaaTaso);
         kentta.SetTileMethod('*', LisaaAvain);
         kentta.SetTileMethod('P', LisaaPelaaja);
+        kentta.SetTileMethod('V', LisaaPommi);
         kentta.SetTileMethod('1', delegate(Vector position, double width, double height)
         {
             LisaaNappi(position, width, height, Nappi1, "1");
@@ -125,7 +128,7 @@ public class Pulmapeli : PhysicsGame
         Camera.ZoomFactor = 0.3;
         //Camera.ZoomToAllObjects();
         //Camera.StayInLevel = true;
-
+        
         MasterVolume = 0.5;
         LisaaNappaimet();
 
@@ -150,6 +153,8 @@ public class Pulmapeli : PhysicsGame
     void SeuraavaKentta()
     {
         ClearAll();
+        napit.Clear();
+        hissit.Clear();
         if (kenttaNro > 4) Exit();
         LuoKentta($"kentta{kenttaNro}");
         
@@ -218,6 +223,16 @@ public class Pulmapeli : PhysicsGame
         Add(taso);
     }
 
+    void LisaaPommi(Vector paikka, double leveys, double korkeus)
+    {
+        PhysicsObject pommi = new PhysicsObject(leveys*4, korkeus*2);
+        pommi.Position = paikka;
+        pommi.Image = PomminKuva;
+        AddCollisionHandler(pommi, "seina", TuhoaSeina);
+        
+        Add(pommi);
+    }
+
     void LisaaOvi(Vector paikka, double leveys, double korkeus)
     {
         PhysicsObject ovi = PhysicsObject.CreateStaticObject(leveys*4, korkeus*4);
@@ -235,6 +250,7 @@ public class Pulmapeli : PhysicsGame
         seina.Position = paikka;
         seina.Image = Seina;
         seina.AddCollisionIgnoreGroup(1);
+        seina.Tag = "seina";
         Add(seina, 1);
     }
 
@@ -265,7 +281,7 @@ public class Pulmapeli : PhysicsGame
 
     private void LisaaNappi(Vector paikka, double leveys, double korkeus, Image kuva, string tagi)
     {
-        Nappi nappi = new Nappi(leveys*4,korkeus*3);
+        Nappi nappi = new Nappi(leveys*5.5,korkeus*3);
         
         nappi.Position = paikka;
         nappi.IgnoresCollisionResponse = true;
@@ -357,7 +373,13 @@ public class Pulmapeli : PhysicsGame
     {
         pelaaja1.Destroy();
         Avainkeratty = 0;
-        SeuraavaKentta();
+        PaaValikko();
+    }
+
+    void TuhoaSeina(PhysicsObject pommi, PhysicsObject seina)
+    {
+        
+        seina.Destroy();
     }
 
     void AvainLoytyi(PhysicsObject pelaaja1, PhysicsObject avain)
@@ -377,6 +399,7 @@ public class Pulmapeli : PhysicsGame
     }
     void PainaaNappia()
     {
+        //NapinPainallus.Play();
         foreach (var nappi in napit)
         {
             if (nappi.IsInsideRect(pelaaja1.Position))
@@ -392,6 +415,8 @@ class Hissi : PhysicsObject
     public Nappi nappi;
     public Vector sijainti1;
     public Vector sijainti2;
+   
+    
     public Hissi(double leveys, double korkeus, Image kuva, Vector sijainti1, Vector sijainti2) : base(leveys, korkeus)
     {
         this.Image = kuva;
@@ -399,7 +424,7 @@ class Hissi : PhysicsObject
         this.sijainti2 = sijainti2;
         this.CanRotate = false;
         this.IgnoresGravity = true;
-        this.Mass = 10000;
+        this.Mass = 100;
        
 
     }
@@ -409,6 +434,7 @@ class Hissi : PhysicsObject
         if (Math.Abs(this.Position.X - sijainti1.X) < 10 && (Math.Abs(this.Position.Y - sijainti1.Y) < 10))
         {
             this.MoveTo(sijainti2, 150);
+            
         }
         else
         {
