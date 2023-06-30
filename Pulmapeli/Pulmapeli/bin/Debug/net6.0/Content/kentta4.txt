@@ -1,14 +1,7 @@
 ﻿  
   
   
-                                                                *
-                                                       SSSSSSSSSSSSSSSSSSSSSSSSSSSS
-                                                       SSSSSSSSSSSSSSSSSSSSSSSSSSSS
-                                                       SSSSSSSSSSSSSSSSSSSSSSSSSSSS
-                                                       SSSSSSSS   V   SSSSSSSSSSSSS
-                                                       SSSSSSSS       SSSSSSSSSSSSS
-                                                       SSSSSSSS   V   SSSSSSSSSSSSS
-                                                       SSSSSSSS   6   SSSSSSSSSSSSS
+                                                     
                                                                       
                                                                       
                                           
@@ -18,11 +11,11 @@
                    ############                                                                                                   
                                
                                 
-     3                                                           
-     ############                                   4
-                 TTTTTTTTTTT         ########                 
-                                                   TTTTTTTTTTTSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS               
-                                                   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                               
+     ############                                   
+                 TTTTTTTTTTT         ########      4           
+                                                   TTTTTTTTTTT   6   SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS               
+                                                   SSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
                                                    SSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSS               
                                                    SSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSS             
                                                    SSSSSSSSSS    *   SSSSSSSSSSSSSSSSSSSSSSS
@@ -33,25 +26,35 @@
                                    p               SSSSSSSSSSTTTTTTTTTSSSSSSSSSSSSSSSSSSSSSSTTTTTTTTTTTTTTTTTTTTTT
                                                                          
                           O
-                          P                                      6   
-                       #########                               
-                                                                                                       p
-                                                                                   p
-                                                                                               
-
-                                                                           M
-                                                                  *         
-                          ###########                          TTTTTTTTTTTSSSSSSSSSSSSSSSSSSS               
+                          P                                        
+          TTTTTTTTTTT#########TTTTTTTTTTTTTTTT                       
+                                                               SS                                        
+                                                               SS      8              
+                                                               SS                                
+                                                               SS                                
+                                                               SS            M
+                                                               SS   *                                                                 *
+              7 TTTTTTTTTTT###########                         TTTTTTTTTTTSSSSSSSSSSSSSSSSSSS                                    ###############
                                                                SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS                
-                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS             
-                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      5
-              1                                                SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS   
-            ######
-                                                      p
+                                                                               SSSSSSSSSSSSSS
+                                                                             1 SSSSSSSSSSSSSS
+                                                                               SSSSSSSSSSSSSS
+                                                                               SSSSSSSSSSSSSS                  
+              2                                                TTTTTTSSSSSSSSSSSSSSSSSSSSSSSS                   p    
+                   TTTTTTTTTTTTTTTTTTT                                                            5
+                                                            ##########
+                                                                                                                    
+                             
+                            
+                            
+                                                                  SS 
+                                                                  SS
+                                                                  SS             3
+                                                       p          #####################
+                                                      
            
                                                  
-                                                                  ##############
+                                                                  
                                                                                                      
                                                                                   
                                                                           

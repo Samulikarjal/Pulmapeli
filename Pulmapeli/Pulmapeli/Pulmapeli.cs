@@ -14,6 +14,7 @@ using Vector = Jypeli.Vector;
 
 namespace Pulmapeli;
 
+// versio 1.0
 public class Pulmapeli : PhysicsGame
 {
     private const double NOPEUS = 400;
@@ -23,12 +24,12 @@ public class Pulmapeli : PhysicsGame
     private PlatformCharacter pelaaja1;
     private int Avainkeratty = 0;
     private int kenttaNro = 1;
-   
-    
-    private bool Nappia1Painettu = false;
-    private bool Nappia2Painettu = false;
-    private bool Nappia3Painettu = false;
-    private bool Nappia4Painettu = false;
+
+
+    private bool kentta1Lapaisty = false;
+    private bool kentta2Lapaisty = false;
+    private bool kentta3Lapaisty = false;
+    private bool kentta4Lapaisty = false;
     private Vector reuna;
     private Image pelaajanKuva = LoadImage("norsu.png");
     private Image avainKuva = LoadImage("avain");
@@ -42,7 +43,8 @@ public class Pulmapeli : PhysicsGame
     private Image PomppuTasonKuva = LoadImage("pompputaso");
     private Image OvenKuva = LoadImage("ovi");
     private SoundEffect MaaliAani = LoadSoundEffect("maali.wav");
-    //private SoundEffect NapinPainallus = LoadSoundEffect("nappi.mp3");
+    private SoundEffect NapinPainallus = LoadSoundEffect("nappi");
+    private SoundEffect TaustaMusiikki = LoadSoundEffect("taustamusiikki");
     private Image Seina = LoadImage("seina");
     private Image Nappi1 = LoadImage("nappi1");
     private Image Nappi2 = LoadImage("nappi2");
@@ -70,11 +72,13 @@ public class Pulmapeli : PhysicsGame
         Camera.ZoomFactor = 0.3;
         Camera.StayInLevel = true;
         MasterVolume = 0.5;
+        TaustaMusiikki.Play();
         PaaValikko();
     }
 
     private void LuoKentta(string kenttanro)
     {
+        
         TileMap kentta = TileMap.FromLevelAsset(kenttanro);
         kentta.SetTileMethod('#', LisaaTaso);
         kentta.SetTileMethod('*', LisaaAvain);
@@ -117,7 +121,8 @@ public class Pulmapeli : PhysicsGame
         kentta.SetTileMethod('O', LisaaOvi);
         kentta.SetTileMethod('M', LisaaMaali);
         kentta.SetTileMethod('S', LisaaSeina);
-       
+        TaustaMusiikki.Play();
+        Avainkeratty = 0;
         
         kentta.Execute(RUUDUN_KOKO, RUUDUN_KOKO*2);
         AlustaNapit();
@@ -170,19 +175,47 @@ public class Pulmapeli : PhysicsGame
     void Kentta2()
     {
         kenttaNro = 2;
-        SeuraavaKentta();
+        if (kentta1Lapaisty == true)
+        {
+            SeuraavaKentta();   
+        }
+        else
+        {
+            MessageDisplay.Add("Complete level 1 to unlock this level!");
+            PaaValikko();
+        }
+        
     }
 
     void Kentta3()
     {
         kenttaNro = 3;
-        SeuraavaKentta();
+        if (kentta2Lapaisty == true)
+        {
+            SeuraavaKentta();   
+        }
+        else
+        {
+            MessageDisplay.Add("Complete level 2 to unlock this level!");
+            PaaValikko();
+        }
+
+        
     }
 
     void Kentta4()
     {
         kenttaNro = 4;
-        SeuraavaKentta();
+        if (kentta3Lapaisty == true)
+        {
+            SeuraavaKentta();   
+        }
+        else
+        {
+            MessageDisplay.Add("Complete level 3 to unlock this level!");
+            PaaValikko();
+        }
+
     }
     void PaaValikko()
     {
@@ -203,7 +236,14 @@ public class Pulmapeli : PhysicsGame
         lapaisyvalikko.AddItemHandler(1, PaaValikko);
         lapaisyvalikko.AddItemHandler(2, Exit);
     }
-    
+    void KuolemisValikko()
+    {
+        MultiSelectWindow kuolemisvalikko = new MultiSelectWindow("Game over ):","Try again", "Main Menu", "Exit");
+        Add(kuolemisvalikko);
+        kuolemisvalikko.AddItemHandler(0, SeuraavaKentta);
+        kuolemisvalikko.AddItemHandler(1, PaaValikko);
+        kuolemisvalikko.AddItemHandler(2, Exit);
+    }
 
     void LisaaVesi(Vector paikka, double leveys, double korkeus)
     {
@@ -216,7 +256,7 @@ public class Pulmapeli : PhysicsGame
     }
     private void LisaaTaso(Vector paikka, double leveys, double korkeus)
     {
-        PhysicsObject taso = PhysicsObject.CreateStaticObject(leveys, korkeus/2);
+        PhysicsObject taso = PhysicsObject.CreateStaticObject(leveys*2, korkeus);
         taso.Position = paikka;
         taso.Image = TasonKuva;
         taso.AddCollisionIgnoreGroup(1);
@@ -373,7 +413,7 @@ public class Pulmapeli : PhysicsGame
     {
         pelaaja1.Destroy();
         Avainkeratty = 0;
-        PaaValikko();
+        KuolemisValikko();
     }
 
     void TuhoaSeina(PhysicsObject pommi, PhysicsObject seina)
@@ -386,20 +426,30 @@ public class Pulmapeli : PhysicsGame
     {
         Avainkeratty++;
         MessageDisplay.Add("You found a key!");
+        MaaliAani.Play();
         avain.Destroy();
     }
     void PelaajaLapaisiKentan(PhysicsObject pelaaja1, PhysicsObject maali)
     {
         if (Avainkeratty == 3)
         {
+            if (kenttaNro == 1) kentta1Lapaisty = true;
+            if (kenttaNro == 2) kentta2Lapaisty = true;
+            if (kenttaNro == 3) kentta3Lapaisty = true;
+           
             kenttaNro++;
+            
             LapaisyValikko();
+        }
+        else
+        {
+            MessageDisplay.Add($"You need {3-Avainkeratty} more keys!");
         }
         
     }
     void PainaaNappia()
     {
-        //NapinPainallus.Play();
+        NapinPainallus.Play();
         foreach (var nappi in napit)
         {
             if (nappi.IsInsideRect(pelaaja1.Position))
@@ -424,7 +474,7 @@ class Hissi : PhysicsObject
         this.sijainti2 = sijainti2;
         this.CanRotate = false;
         this.IgnoresGravity = true;
-        this.Mass = 100;
+        this.Mass = 10000;
        
 
     }

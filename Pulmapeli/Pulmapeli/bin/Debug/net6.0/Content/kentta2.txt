@@ -1,51 +1,38 @@
-﻿
-
-
-                                             2
-                                             
-                                          ######
-                   
-                                  
-               TTTTTTTTTTTTT  6     TTTTTTTTTTTTTTTTTTTTTTTTT
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS             
-               SSSSSSSSSSSSS   *    SSSSSSSSSSSSSSSSSSSSSSSSS
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS              p
-               SSSSSSSSSSSSS      2 SSSSSSSSSSSSSSSSSSSSSSSSS             
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS 
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS 
-               SSSSSSSSSSSSS        SSSSSSSSSSSSSSSSSSSSSSSSS   
-                                                 7                               ############                                                                                                   
-                               
-                                
-     3                                                           
-     ############                                   4
-                 TTTTTTTTTTT         ########       TTTTTTTTTTTTTTT
-                                                  
-                                                                           
-                          O
-                          P                                          8
-                       #########                               
-                                                                                                       p
-                                                                    
-                                                            p                                   
-
-                                                                           M
-                                                                  *         
-                          ###########                          TTTTTTTTTTTSSSSSSSSSSSSSSSSSSS               
-                                                     5         SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS                
-                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS             
-                                                               SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
-              1                                                SSSSSSSSSSSSSSSSSSSSSSSSSSSSSS 
-            ######
-           
-           
-           
-           
-                                                                                                     p
- 
-                                                                            *
-                                                                       ################
-
-
-TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT
+                            2
+                            
+                                     SSSSSSSSSSSSSS   6  SSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSS      SSSSSSSSSSSS
+                                     SSSSSSSSSSSSSS      SSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSS      SSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSS      SSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSS      SSSSSSSSSSSSSSSSSSSSSS  3
+                                     SSSSSSSSSSSSSS  *   SSSSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS      7
+                                     SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS
+                                                                                   
+          
+          
+                            
+                            p             
+               O                   
+             P       1                 
+      5  ###############                                                                                              
+                                                                         
+                                                             4
+                                               TTTTTTTTTT      TTTTTTTT      
+                                               SSSSSSSSSSSSSSSS    
+                                               SSSSSSSSSSSSSSSS    
+                                               SSSSSSSSSSSSSSSS             8
+                      *                        SSSSSSSSSSSSSSSS     
+                                               SSSSSSSSSSSSSSSS
+                  TTTTTTTTT                    SSSSSSSSSSSSSSSS
+                                               SSSSSSSSSSSSSSSS
+                                                                  
+                                                                                                                                                                                                                                                                                                   
+                                                                                                                                                        
+#######      p               H   #########TTTTTTTTT
+                                         
+                                                        M       
+                                                                *
+TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT##########TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT

@@ -18,14 +18,14 @@
                O                   
              P       1                 
       5  ###############                                                                                              
-                                                                         TTTTTT
+                                                                         
                                                              4
-                                               TTTTTTTTTT            
+                                               TTTTTTTTTT      TTTTTTTT      
                                                SSSSSSSSSSSSSSSS    
                                                SSSSSSSSSSSSSSSS    
                                                SSSSSSSSSSSSSSSS             8
-                                               SSSSSSSSSSSSSSSS     
-                  *                            SSSSSSSSSSSSSSSS
+                      *                        SSSSSSSSSSSSSSSS     
+                                               SSSSSSSSSSSSSSSS
                   TTTTTTTTT                    SSSSSSSSSSSSSSSS
                                                SSSSSSSSSSSSSSSS
                                                                   
